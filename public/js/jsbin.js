@@ -70,7 +70,14 @@ if (storedSettings === "undefined") {
   // yes, equals the *string* "undefined", then something went wrong
   storedSettings = null;
 }
-window.jsbin.settings = $.extend(JSON.parse(storedSettings || '{}'), jsbin.settings);
+var defaultSettings = {
+  editor: {
+    theme: "monokai",
+    lineNumbers: true,
+    matchBrackets: true
+  }
+};
+window.jsbin.settings = $.extend(JSON.parse(storedSettings || '{}'), jsbin.settings, defaultSettings);
 
 // if the above code isn't dodgy, this for hellz bells is:
 jsbin.mobile = /WebKit.*Mobile.*|Android/.test(navigator.userAgent);

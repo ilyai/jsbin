@@ -1274,6 +1274,11 @@ input {
 }
 */
 
+.label .name a {
+  color: #fff;
+  text-shadow: none;
+}
+
 /* begin CodeMirror's own CSS */
 /* BASICS */
 
@@ -1522,8 +1527,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   top: 0;
   bottom: 0;
   line-height: 1.2em;
-  font-family: SourceCodeProRegular, Menlo, Monaco, consolas, monospace;
-  font-size: 14px;
+  /* font-family: SourceCodeProRegular, Menlo, Monaco, consolas, monospace; */
+  font-family: monospace;
+  font-size: 9pt;
 }
 
 .CodeMirror-lines {
@@ -1546,7 +1552,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 }
 
 .activeline {
-  background: #F2F7FF !important;
+  background: rgb(62,61,50) !important;
 }
 
 .CodeMirror-linenumbers {
@@ -3344,7 +3350,7 @@ THE SOFTWARE.
 
 .focus .CodeMirror-activeline .CodeMirror-linenumber,
 .focus .CodeMirror-activeline-background {
-  background: #e8f2ff !important;
+  background: rgb(62,61,50) !important;
 }
 
 .CodeMirror-focused .cm-matchhighlight {

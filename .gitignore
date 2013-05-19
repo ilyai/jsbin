@@ -1,6 +1,10 @@
+db
+db/*
 logs
 logs/*
+node_modules/
 config.*.json
+config.json
 public/js/jsbin*.js
 public/js/prod/*
 .nodemonignore
