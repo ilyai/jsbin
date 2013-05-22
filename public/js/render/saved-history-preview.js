@@ -71,7 +71,7 @@
         layoutTimer = null;
 
     // Load bin from data-edit-url attribute when user clicks on a row
-    $bins.delegate('tr:not(.spacer)', 'click', function () {
+    $bins.delegate('tr:not(.spacer)', 'dblclick', function () {
       if (event.shiftKey || event.metaKey) return;
       window.location = this.getAttribute('data-edit-url');
     });
@@ -105,8 +105,8 @@
     });
 
 
-    // Load a preview on tr mouseover (delayed by 400ms)
-    $bins.delegate('tr', 'mouseover', function (event) {
+    // Load a preview on tr click (delayed by 50ms)
+    $bins.delegate('tr', 'click', function (event) {
       var $this = $(this),
           url = $this.attr('data-url');
       clearTimeout(hoverTimer);
@@ -117,7 +117,7 @@
           current = url;
           updatePreview(url, $iframe);
           updateViewing(url, $viewing);
-        }, 400);
+        }, 50);
       }
       return false;
     });
