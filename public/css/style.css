@@ -960,7 +960,7 @@ ie6, li {
   outline: none !important;
   background: #FFFFDB;
   border: 0;
-  font-family: SourceCodeProRegular, Monaco, consolas, monospace;
+  font-family: monospace;
   font-size: 13px;
 }
 
@@ -2112,7 +2112,7 @@ a.active:hover {
   /*position: absolute;*/
   /*top: 31px;*/
   -webkit-transition: top ease-out 200ms;
-  font-family: SourceCodeProRegular, Menlo, Monaco, consolas, monospace;
+  font-family: monospace;
   text-shadow: none;
   /*-webkit-transition-delay: 100ms;*/
   font-size: 14px;
