@@ -46,7 +46,7 @@ var processors = jsbin.processors = {
   coffeescript: function (ready) {
     return new Processor(jsbin.static + '/js/vendor/coffee-script.js', function () {
       $.getScript(jsbin.static + '/js/vendor/codemirror3/mode/coffeescript/coffeescript.js', ready);
-    }, function (source) { 
+    }, function (source) {
       var renderedCode = '';
       try {
         renderedCode = CoffeeScript.compile(source, {
@@ -61,18 +61,18 @@ var processors = jsbin.processors = {
   typescript: function (ready) {
     return new Processor(jsbin.static + '/js/vendor/typescript.min.js', ready, function (source) {
       var noop = function () {};
-      var outfile = { 
-        source: "", 
-        Write: function (s) { 
-          this.source += s; 
-        }, 
-        WriteLine: function (s) { 
-          this.source += s + "\n"; 
-        }, 
-        Close: noop 
+      var outfile = {
+        source: "",
+        Write: function (s) {
+          this.source += s;
+        },
+        WriteLine: function (s) {
+          this.source += s + "\n";
+        },
+        Close: noop
       };
 
-      var outerr = { 
+      var outerr = {
         Write: noop,
         WriteLine: noop,
         Close: noop
@@ -82,8 +82,8 @@ var processors = jsbin.processors = {
 
       var compiler = new TypeScript.TypeScriptCompiler(outfile, outerr);
 
-      compiler.setErrorCallback(function (start, len, message) { 
-        parseErrors.push({ start: start, len: len, message: message }); 
+      compiler.setErrorCallback(function (start, len, message) {
+        parseErrors.push({ start: start, len: len, message: message });
       });
       compiler.parser.errorRecovery = true;
 
@@ -261,7 +261,8 @@ processors.set = function (panelId, preprocessor, callback) {
     jsbin.state.processors = {};
   }
 
-  var cmMode = preprocessor ? editorModes[preprocessor] || editorModes[panelId] : editorModes[panelId];
+
+  var cmMode = preprocessor ? editorModes[preprocessor] || editorModes['default'] : editorModes[panelId];
 
   if (panel) {
     panel.trigger('processor', preprocessor || 'none');

@@ -9,7 +9,8 @@ var editorModes = {
   markdown: 'markdown',
   coffeescript: 'coffeescript',
   less: 'css',
-  processing: 'text/x-csrc'
+  processing: 'text/x-csrc',
+  'default': 'text/plain'
 };
 
 var badChars = new RegExp('[\u200B\u0080-\u00a0]', 'g');
@@ -46,7 +47,7 @@ var emmetToggleComment = emmet.require('actions').get('toggle_comment');
 emmet.require('actions').add('toggle_comment', function(editor) {
   var info = emmet.require('editorUtils').outputInfo(editor);
   if (info.syntax == 'javascript') {
-    // in case our editor is good enough and can recognize syntax from 
+    // in case our editor is good enough and can recognize syntax from
     // current token, we have to make sure that cursor is not inside
     // 'style' attribute of html element
     var editorUtils = emmet.require('editorUtils');
@@ -466,8 +467,8 @@ Panel.prototype = {
           offset += ($error.filter(':visible').height() || 0);
         }
 
-        if (!jsbin.lameEditor) { 
-          editor.scroller.height(height - offset); 
+        if (!jsbin.lameEditor) {
+          editor.scroller.height(height - offset);
         }
         try { editor.refresh(); } catch (e) {}
       }
